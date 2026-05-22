@@ -1,0 +1,375 @@
+/* ============================================================
+   Gerald Francis Talbot — Biographical Dossier
+   Print stylesheet for WeasyPrint (A4)
+   ============================================================ */
+
+@page {
+    size: A4;
+    margin: 22mm 20mm 20mm 20mm;
+
+    @top-center {
+        content: "GERALD FRANCIS TALBOT \2014  A LIFE";
+        font-family: "EB Garamond", "Bitstream Charter", serif;
+        font-size: 8pt;
+        letter-spacing: 2px;
+        color: #8a7a5c;
+    }
+    @bottom-center {
+        content: counter(page);
+        font-family: "EB Garamond", "Bitstream Charter", serif;
+        font-size: 9pt;
+        color: #6b5d44;
+    }
+    @bottom-right {
+        content: "Hawke Family Archive";
+        font-family: "EB Garamond", "Bitstream Charter", serif;
+        font-size: 7.5pt;
+        letter-spacing: 1px;
+        color: #b3a585;
+    }
+}
+
+/* Cover page: no header/footer */
+@page cover {
+    margin: 0;
+    @top-center { content: none; }
+    @bottom-center { content: none; }
+    @bottom-right { content: none; }
+}
+
+/* Section opener pages */
+@page chapter {
+    @top-center { content: none; }
+}
+
+:root {
+    --ink: #20242b;
+    --ink-soft: #3c4350;
+    --gold: #8a6d3b;
+    --gold-deep: #6b5320;
+    --crimson: #7a2230;
+    --navy: #1f3a5f;
+    --rule: #c9b896;
+    --parchment: #faf7f0;
+    --parchment-deep: #f3ecdc;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    font-family: "EB Garamond", "Bitstream Charter", "DejaVu Serif", Georgia, serif;
+    font-size: 10.8pt;
+    line-height: 1.55;
+    color: var(--ink);
+}
+
+body { margin: 0; padding: 0; }
+
+/* ---------------- COVER ---------------- */
+.cover {
+    page: cover;
+    page-break-after: always;
+    height: 297mm;
+    width: 210mm;
+    background:
+        radial-gradient(ellipse at 50% 18%, #ffffff 0%, var(--parchment) 45%, var(--parchment-deep) 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.cover-border {
+    position: absolute;
+    top: 14mm; left: 14mm; right: 14mm; bottom: 14mm;
+    border: 1.5px solid var(--gold);
+    box-shadow: inset 0 0 0 3px var(--parchment), inset 0 0 0 4px var(--rule);
+}
+
+.cover-inner {
+    position: relative;
+    z-index: 2;
+    padding: 38mm 22mm 0 22mm;
+    width: 100%;
+}
+
+.cover-eyebrow {
+    font-size: 11pt;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 6mm;
+}
+
+.cover-crest {
+    font-size: 34pt;
+    color: var(--gold);
+    margin: 0 0 6mm 0;
+    line-height: 1;
+}
+
+.cover h1 {
+    font-size: 40pt;
+    line-height: 1.05;
+    margin: 0 0 3mm 0;
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.cover .cover-sub {
+    font-size: 15pt;
+    font-style: italic;
+    color: var(--crimson);
+    margin: 0 0 8mm 0;
+}
+
+.cover .cover-dates {
+    font-size: 13pt;
+    letter-spacing: 3px;
+    color: var(--ink-soft);
+    margin-bottom: 10mm;
+}
+
+.cover-rule {
+    width: 60mm;
+    height: 0;
+    border-top: 1px solid var(--rule);
+    margin: 8mm auto;
+}
+
+.cover-epithets {
+    font-size: 12pt;
+    font-style: italic;
+    color: var(--ink-soft);
+    line-height: 1.9;
+}
+
+.cover-foot {
+    position: absolute;
+    bottom: 26mm;
+    left: 0; right: 0;
+    z-index: 2;
+    font-size: 10pt;
+    letter-spacing: 2px;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+}
+.cover-foot .small {
+    display:block;
+    font-size: 8.5pt;
+    letter-spacing: 1px;
+    color: #9a8b6a;
+    text-transform: none;
+    font-style: italic;
+    margin-top: 3mm;
+}
+
+/* ---------------- HEADINGS ---------------- */
+h1, h2, h3, h4 { font-weight: 600; color: var(--ink); }
+
+h2.section {
+    font-size: 20pt;
+    color: var(--navy);
+    margin: 0 0 2mm 0;
+    padding-bottom: 2mm;
+    border-bottom: 2px solid var(--gold);
+    page-break-after: avoid;
+}
+.section-num {
+    display: block;
+    font-size: 9pt;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 1mm;
+}
+
+h3 {
+    font-size: 13pt;
+    color: var(--crimson);
+    margin: 6mm 0 1.5mm 0;
+    page-break-after: avoid;
+}
+
+h4 {
+    font-size: 11pt;
+    color: var(--gold-deep);
+    margin: 4mm 0 1mm 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    page-break-after: avoid;
+}
+
+p { margin: 0 0 3mm 0; text-align: justify; hyphens: auto; }
+
+.lead {
+    font-size: 12pt;
+    line-height: 1.6;
+}
+.lead::first-letter {
+    font-size: 320%;
+    line-height: 0.85;
+    float: left;
+    padding: 2mm 2mm 0 0;
+    color: var(--crimson);
+    font-weight: 600;
+}
+
+a { color: var(--navy); text-decoration: none; }
+
+strong { color: var(--ink); }
+em { color: var(--ink-soft); }
+
+/* ---------------- TABLE OF CONTENTS ---------------- */
+.toc { page-break-after: always; padding-top: 6mm; }
+.toc h2 { border:none; color: var(--navy); font-size: 22pt; margin-bottom: 8mm; }
+.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+.toc li {
+    counter-increment: toc;
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 4mm;
+    font-size: 12pt;
+}
+.toc li::before {
+    content: counter(toc, upper-roman) ".";
+    color: var(--gold-deep);
+    width: 14mm;
+    font-variant: small-caps;
+    flex-shrink: 0;
+}
+.toc .toc-title { color: var(--ink); }
+.toc .toc-desc { display:block; font-size: 9.5pt; font-style: italic; color: #8a7a5c; margin-left: 14mm; }
+
+/* ---------------- SECTION OPENERS ---------------- */
+.chapter-open { page-break-before: always; page: chapter; padding-top: 4mm; }
+
+/* ---------------- CALLOUTS ---------------- */
+.callout {
+    background: var(--parchment);
+    border-left: 3px solid var(--gold);
+    padding: 4mm 5mm;
+    margin: 4mm 0;
+    font-size: 10.2pt;
+    page-break-inside: avoid;
+}
+.callout .callout-title {
+    display: block;
+    font-size: 8.5pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 1.5mm;
+}
+
+.pullquote {
+    font-size: 14pt;
+    font-style: italic;
+    color: var(--navy);
+    text-align: center;
+    margin: 6mm 10mm;
+    line-height: 1.45;
+    page-break-inside: avoid;
+}
+.pullquote::before { content: "\201C"; color: var(--gold); font-size: 20pt; vertical-align: -4pt; }
+.pullquote::after { content: "\201D"; color: var(--gold); font-size: 20pt; vertical-align: -4pt; }
+.pullquote .attrib { display:block; font-size: 9.5pt; font-style: normal; letter-spacing:1px; color:#8a7a5c; margin-top:2mm; }
+
+.note {
+    font-size: 9.5pt;
+    color: var(--ink-soft);
+    background: #f7f3ea;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 3mm 4mm;
+    margin: 3mm 0;
+    page-break-inside: avoid;
+}
+.note .note-tag {
+    font-size: 8pt; letter-spacing:2px; text-transform:uppercase; color: var(--crimson); display:block; margin-bottom:1mm;
+}
+
+/* ---------------- FACT BOX (vital statistics) ---------------- */
+.factbox {
+    border: 1px solid var(--rule);
+    background: var(--parchment);
+    padding: 5mm 6mm;
+    margin: 4mm 0 6mm 0;
+    page-break-inside: avoid;
+}
+.factbox h4 { margin-top:0; color: var(--navy); border-bottom:1px solid var(--rule); padding-bottom:2mm; }
+.factbox table { width:100%; border-collapse: collapse; font-size: 10pt; }
+.factbox td { padding: 1.4mm 0; vertical-align: top; }
+.factbox td.k { width: 38%; color: var(--gold-deep); font-variant: small-caps; letter-spacing:0.5px; }
+.factbox td.v { color: var(--ink); }
+.factbox tr + tr td { border-top: 1px dotted #d9ccad; }
+
+/* ---------------- TIMELINE ---------------- */
+.timeline { margin: 4mm 0; padding: 0; list-style: none; }
+.timeline li {
+    position: relative;
+    padding: 0 0 4mm 18mm;
+    page-break-inside: avoid;
+}
+.timeline li::before {
+    content: "";
+    position: absolute;
+    left: 12mm; top: 1.5mm;
+    width: 2mm; height: 2mm;
+    background: var(--gold);
+    border-radius: 50%;
+}
+.timeline li::after {
+    content: "";
+    position: absolute;
+    left: 12.9mm; top: 3.5mm; bottom: -1mm;
+    width: 0; border-left: 1px solid var(--rule);
+}
+.timeline li:last-child::after { display:none; }
+.timeline .yr {
+    position: absolute; left: 0; top: 0;
+    width: 11mm; text-align: right;
+    font-weight: 600; color: var(--crimson); font-size: 10pt;
+}
+.timeline .ev { color: var(--ink); }
+
+/* ---------------- GENERAL TABLES ---------------- */
+table.data { width:100%; border-collapse: collapse; margin: 3mm 0; font-size: 9.8pt; }
+table.data th {
+    background: var(--navy); color: #fff; text-align:left;
+    padding: 2mm 3mm; font-size: 8.5pt; letter-spacing:1px; text-transform:uppercase; font-weight:500;
+}
+table.data td { padding: 1.8mm 3mm; border-bottom: 1px solid #e3d9c2; vertical-align: top; }
+table.data tr:nth-child(even) td { background: #faf7ef; }
+
+/* ---------------- SOURCES ---------------- */
+.sources { font-size: 9pt; color: var(--ink-soft); }
+.sources ol { padding-left: 6mm; }
+.sources li { margin-bottom: 2mm; page-break-inside: avoid; }
+.sources .rel { font-style: italic; color: #8a7a5c; }
+
+ul.clean { list-style: none; padding-left: 4mm; }
+ul.clean li { position: relative; padding-left: 5mm; margin-bottom: 1.5mm; }
+ul.clean li::before { content: "\2756"; position:absolute; left:0; color: var(--gold); font-size: 8pt; top: 1px; }
+
+hr.flourish {
+    border: none;
+    text-align: center;
+    margin: 6mm 0;
+}
+hr.flourish::after {
+    content: "\2766";
+    color: var(--gold);
+    font-size: 14pt;
+}
+
+.disclaimer {
+    font-size: 8.5pt;
+    color: #8a7a5c;
+    font-style: italic;
+    border-top: 1px solid var(--rule);
+    padding-top: 3mm;
+    margin-top: 6mm;
+}
