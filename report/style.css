@@ -184,6 +184,8 @@ h2.section {
     text-transform: uppercase;
     color: var(--gold-deep);
     margin-bottom: 1mm;
+    break-after: avoid;
+    page-break-after: avoid;
 }
 
 h3 {
@@ -208,13 +210,15 @@ p { margin: 0 0 3mm 0; text-align: justify; hyphens: auto; }
     font-size: 12pt;
     line-height: 1.6;
 }
-.lead::first-letter {
-    font-size: 320%;
-    line-height: 0.85;
+.dropcap {
+    font-size: 340%;
+    line-height: 0.8;
     float: left;
-    padding: 2mm 2mm 0 0;
+    padding: 1mm 2mm 0 0;
+    margin-top: 1mm;
     color: var(--crimson);
     font-weight: 600;
+    font-family: "EB Garamond", "Bitstream Charter", "DejaVu Serif", Georgia, serif;
 }
 
 a { color: var(--navy); text-decoration: none; }
@@ -244,7 +248,9 @@ em { color: var(--ink-soft); }
 .toc .toc-desc { display:block; font-size: 9.5pt; font-style: italic; color: #8a7a5c; margin-left: 14mm; }
 
 /* ---------------- SECTION OPENERS ---------------- */
-.chapter-open { page-break-before: always; page: chapter; padding-top: 4mm; }
+.chapter-open { margin-top: 11mm; }
+.chapter-open:first-of-type { margin-top: 0; }
+.chapter-open.force-break { page-break-before: always; page: chapter; padding-top: 4mm; margin-top: 0; }
 
 /* ---------------- CALLOUTS ---------------- */
 .callout {
@@ -373,3 +379,47 @@ hr.flourish::after {
     padding-top: 3mm;
     margin-top: 6mm;
 }
+
+/* ---------------- LINEAGE LADDER ---------------- */
+.lineage { margin: 4mm 0; padding: 0; }
+.lineage .gen {
+    border: 1px solid var(--rule);
+    background: var(--parchment);
+    border-radius: 2px;
+    padding: 2.4mm 4mm;
+    page-break-inside: avoid;
+    position: relative;
+}
+.lineage .gen .nm { font-weight: 600; color: var(--ink); font-size: 10.4pt; }
+.lineage .gen .nm .yrs { color: var(--gold-deep); font-weight: 400; font-size: 9pt; }
+.lineage .gen .role { display:block; font-size: 9pt; font-style: italic; color: var(--ink-soft); margin-top: 0.5mm; }
+.lineage .arrow { text-align:center; color: var(--gold); font-size: 11pt; line-height: 1; margin: 0.6mm 0; }
+.lineage .gen.hl { background: #f6ecd0; border-color: var(--gold); border-left: 3px solid var(--gold); }
+.lineage .gen.subject { background: #f3ecdc; border: 2px solid var(--crimson); }
+.lineage .gen.subject .nm { color: var(--crimson); }
+.lineage .ellipsis { text-align:center; color: var(--gold-deep); letter-spacing: 3px; font-size: 11pt; margin: 0.6mm 0; }
+
+/* ---------------- DESCENT TREE ---------------- */
+.descent { margin: 4mm 0; }
+.descent .node {
+    border: 1px solid var(--rule);
+    background: var(--parchment);
+    padding: 2mm 4mm;
+    margin: 1.5mm 0;
+    border-radius: 2px;
+    page-break-inside: avoid;
+}
+.descent .node .nm { font-weight: 600; color: var(--ink); }
+.descent .node .nm .yrs { color: var(--gold-deep); font-weight: 400; font-size: 9pt; }
+.descent .node .role { display:block; font-size: 9pt; font-style: italic; color: var(--ink-soft); }
+.descent .indent1 { margin-left: 8mm; }
+.descent .indent2 { margin-left: 16mm; }
+.descent .node.subject { border: 2px solid var(--crimson); background: #f3ecdc; }
+.descent .node.subject .nm { color: var(--crimson); }
+.descent .gens-tag { font-size: 8pt; letter-spacing:2px; text-transform:uppercase; color: var(--gold-deep); }
+
+.twocol { column-count: 2; column-gap: 8mm; }
+.twocol .factbox, .twocol .callout { break-inside: avoid; }
+
+.crest-inline { display:block; width: 42mm; margin: 4mm auto; }
+.figcaption { text-align:center; font-size: 8.5pt; font-style:italic; color:#8a7a5c; margin-top:-2mm; margin-bottom: 4mm; }
