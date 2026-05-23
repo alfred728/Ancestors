@@ -29,4 +29,7 @@
 ## Top authoritative sources
 LG 31360 (OBE) · LG 32782 (KCVO) · Wikipedia KCVO-appointments list · Wikidata Q76334708 · thepeerage.com p69703.
 
-> Note: a second (restarted) verification agent was launched when this one appeared stalled; it added nothing beyond the above and is disregarded.
+> Note: a second (restarted) verification agent also completed. It corroborated the above and added two items:
+> - **NEW: Hélène was a widow** — her first husband **Charles Labouchère** (French Army captain) died **3 June 1917**; she m. Gerald 15 Jun 1920. Plausible (the Labouchère banking dynasty fits her Paris-banking milieu). Added to the report (Section VII).
+> - Re-stressed that Sir Gilbert Talbot (d.1518) was son of the **2nd** Earl (already reflected: report says "a younger son of the 2nd Earl").
+> - Pangalos quote: restart agent marked UNCERTAIN (first agent found it on the Prince Andrew Wikipedia article); report already hedges with "is reported to have." Hélène d.1975 and grandchildren birth years remain genealogical-DB-only.
